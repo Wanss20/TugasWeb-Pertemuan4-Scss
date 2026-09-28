@@ -1,0 +1,37 @@
+// ==========================================================
+// PORTOFOLIO M DAFFA DZAKWAN
+// Tugas Rutin 4 — Konversi CSS ke SCSS (struktur 7-1 pattern)
+//
+// This file only wires partials together with @use — no rules
+// are written here. Each partial pulls in abstracts/variables
+// and abstracts/mixins on its own, so this list can be
+// reordered freely without breaking anything.
+// ==========================================================
+
+// 1. Abstracts — variables & mixins (no CSS output on their own)
+@use "abstracts/variables";
+@use "abstracts/mixins";
+
+// 2. Base — resets & global element defaults
+@use "base/reset";
+@use "base/root";
+
+// 3. Layout — page skeleton (header, grid, aside, footer)
+@use "layout/header";
+@use "layout/main-grid";
+@use "layout/aside";
+@use "layout/footer";
+
+// 4. Components — small reusable UI pieces
+@use "components/section-heading";
+@use "components/forms";
+
+// 5. Pages — section-specific styling
+@use "pages/hero";
+@use "pages/hobi";
+@use "pages/tentang-saya";
+@use "pages/contact";
+@use "pages/pendidikan";
+
+// 6. Themes — prefers-color-scheme handling
+@use "themes/dark";

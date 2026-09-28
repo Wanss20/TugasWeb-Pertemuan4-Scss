@@ -1,0 +1,22 @@
+@use "../abstracts/mixins" as m;
+
+main {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 42px 0 35px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.8fr);
+  gap: 22px;
+
+  @include m.respond-to("tablet") {
+    width: min(100% - 30px, 700px);
+    grid-template-columns: 1fr;
+    padding-top: 25px;
+  }
+
+  @include m.respond-to("mobile") {
+    width: calc(100% - 24px);
+    gap: 15px;
+  }
+}

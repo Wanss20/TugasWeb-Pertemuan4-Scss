@@ -1,0 +1,16 @@
+@use "../abstracts/variables" as v;
+
+// The palette is already dark by default (see base/_root.scss).
+// This block only reasserts the same custom properties — via the
+// same @each loop over the color map — when the OS/browser also
+// reports prefers-color-scheme: dark, matching the bonus rubric
+// item from the original CSS.
+@media (prefers-color-scheme: dark) {
+  :root {
+    @each $name, $value in v.$colors {
+      --#{$name}: #{$value};
+    }
+
+    --shadow: #{v.$shadow-default};
+  }
+}

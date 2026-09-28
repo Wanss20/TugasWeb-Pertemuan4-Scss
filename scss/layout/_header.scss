@@ -1,0 +1,94 @@
+@use "../abstracts/mixins" as m;
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(21, 30, 46, 0.95);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(10px);
+
+  nav {
+    max-width: 1120px;
+    margin: auto;
+    padding: 14px 24px;
+
+    ul {
+      @include m.flex(row, flex-end, center, 6px);
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li:first-child {
+      margin-right: auto;
+    }
+
+    a {
+      display: block;
+      padding: 8px 11px;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      @include m.transition();
+
+      &:hover {
+        color: var(--primary);
+        background: var(--soft-blue);
+      }
+    }
+
+    button {
+      margin-left: 8px;
+      padding: 9px 16px;
+      border: 0;
+      border-radius: 9px;
+      background: var(--primary);
+      color: var(--white);
+      font-weight: 700;
+      cursor: pointer;
+      @include m.transition();
+
+      &:hover {
+        background: var(--primary-dark);
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  @include m.respond-to("tablet") {
+    nav {
+      padding: 12px 16px;
+    }
+
+    nav ul {
+      justify-content: center;
+    }
+
+    nav li:first-child {
+      margin-right: 0;
+    }
+  }
+
+  @include m.respond-to("mobile") {
+    position: relative;
+
+    nav ul {
+      gap: 2px;
+    }
+
+    nav a {
+      padding: 6px 7px;
+      font-size: 12px;
+    }
+
+    nav button {
+      margin-left: 3px;
+      padding: 7px 10px;
+      font-size: 12px;
+    }
+  }
+}

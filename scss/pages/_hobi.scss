@@ -1,0 +1,49 @@
+@use "../abstracts/mixins" as m;
+
+#hobi {
+  grid-column: 2;
+  grid-row: 2;
+  @include m.card();
+  @include m.flex(row, flex-start, flex-start, 12px);
+  flex-wrap: wrap;
+  align-content: flex-start;
+
+  h2 {
+    flex-basis: 100%;
+  }
+
+  article {
+    flex: 1 1 150px;
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #0f172a;
+    @include m.transition();
+
+    &:hover {
+      border-color: #3b4e6a;
+      transform: translateY(-3px);
+    }
+  }
+
+  article h3 {
+    margin: 0 0 5px;
+    font-size: 16px;
+  }
+
+  article p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  @include m.respond-to("tablet") {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  @include m.respond-to("mobile") {
+    padding: 22px;
+  }
+}

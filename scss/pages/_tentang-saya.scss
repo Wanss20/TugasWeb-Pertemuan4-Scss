@@ -1,0 +1,21 @@
+@use "../abstracts/mixins" as m;
+
+#tentang-saya {
+  grid-column: 2;
+  grid-row: 3;
+  @include m.card();
+
+  p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  @include m.respond-to("tablet") {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  @include m.respond-to("mobile") {
+    padding: 22px;
+  }
+}

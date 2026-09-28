@@ -1,0 +1,53 @@
+@use "sass:map";
+@use "variables" as v;
+
+// ----------------------------------------------------------
+// respond-to($name)
+// Looks up a breakpoint by name in $breakpoints (@each loop)
+// and opens a max-width media query for it.
+// Usage: @include respond-to("tablet") { ... }
+// ----------------------------------------------------------
+@mixin respond-to($name) {
+  @each $key, $value in v.$breakpoints {
+    @if $key == $name {
+      @media (max-width: $value) {
+        @content;
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------------
+// flex($direction, $justify, $align, $gap)
+// Shorthand for the flexbox groups used throughout the layout
+// (nav list, aside, contact form, hobi cards).
+// ----------------------------------------------------------
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+// ----------------------------------------------------------
+// card($padding)
+// The shared "surface" look reused by every section block
+// (#contact, #hobi, #tentang-saya, #pendidikan).
+// ----------------------------------------------------------
+@mixin card($padding: map.get(v.$spacing, "xl")) {
+  padding: $padding;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+
+// ----------------------------------------------------------
+// transition($props, $duration, $ease)
+// Consistent hover/focus transition used on links, buttons,
+// inputs and cards.
+// ----------------------------------------------------------
+@mixin transition($props: all, $duration: 0.25s, $ease: ease) {
+  transition: $props $duration $ease;
+}

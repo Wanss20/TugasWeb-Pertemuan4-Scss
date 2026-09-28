@@ -1,0 +1,31 @@
+@use "../abstracts/mixins" as m;
+
+#contact {
+  grid-column: 1;
+  grid-row: 2 / span 2;
+  @include m.card();
+
+  > p {
+    margin: 7px 0;
+    color: var(--muted);
+  }
+
+  > p a {
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+
+  @include m.respond-to("tablet") {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  @include m.respond-to("mobile") {
+    padding: 22px;
+  }
+}

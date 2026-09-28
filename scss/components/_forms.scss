@@ -1,0 +1,60 @@
+@use "../abstracts/mixins" as m;
+
+#contact-form {
+  @include m.flex(column, flex-start, stretch, 15px);
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+
+  > div {
+    @include m.flex(column, flex-start, stretch, 6px);
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-small);
+    outline: none;
+    color: var(--text);
+    background: #0f172a;
+    @include m.transition();
+
+    &::placeholder {
+      color: #718096;
+    }
+
+    &:focus {
+      border-color: var(--primary);
+      background: #111c2e;
+      box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.12);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  button {
+    align-self: flex-start;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 9px;
+    background: #e2e8f0;
+    color: #0f172a;
+    font-weight: 700;
+    cursor: pointer;
+    @include m.transition();
+
+    &:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+  }
+}

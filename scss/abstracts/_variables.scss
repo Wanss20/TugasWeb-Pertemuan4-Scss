@@ -1,0 +1,57 @@
+// ==========================================================
+// ABSTRACTS / VARIABLES
+// Single source of truth for colors, spacing, radii, shadow
+// and breakpoints. Colors are also exposed to the DOM as CSS
+// custom properties (see base/_root.scss) so the rest of the
+// stylesheet keeps using var(--name), exactly like the
+// original CSS did.
+// ==========================================================
+
+$color-primary: #60a5fa;
+$color-primary-dark: #3b82f6;
+$color-accent: #fbbf24;
+$color-bg: #0b1120;
+$color-card: #151e2e;
+$color-text: #f1f5f9;
+$color-muted: #a7b1c2;
+$color-line: #29364a;
+$color-soft-blue: #1d304f;
+$color-white: #ffffff;
+
+// Map used to loop over the palette with @each (see base/_root.scss
+// and themes/_dark.scss) instead of writing every custom property
+// by hand.
+$colors: (
+  "primary": $color-primary,
+  "primary-dark": $color-primary-dark,
+  "accent": $color-accent,
+  "bg": $color-bg,
+  "card": $color-card,
+  "text": $color-text,
+  "muted": $color-muted,
+  "line": $color-line,
+  "soft-blue": $color-soft-blue,
+  "white": $color-white,
+);
+
+$radius-lg: 18px;
+$radius-small: 10px;
+$shadow-default: 0 10px 30px rgba(0, 0, 0, 0.28);
+
+// Spacing scale, consumed by the card() mixin and by flex gaps.
+$spacing: (
+  "xs": 6px,
+  "sm": 12px,
+  "md": 18px,
+  "lg": 24px,
+  "xl": 30px,
+  "2xl": 42px,
+);
+
+// Breakpoint map, consumed by the respond-to() mixin via @each.
+$breakpoints: (
+  "tablet": 850px,
+  "mobile": 600px,
+);
+
+$font-base: Arial, Helvetica, sans-serif;

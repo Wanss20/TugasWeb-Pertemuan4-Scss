@@ -1,0 +1,17 @@
+@use "../abstracts/variables" as v;
+
+// ----------------------------------------------------------
+// Emit the color palette as native CSS custom properties.
+// Looping over the $colors map with @each means adding a new
+// color later only requires one new line in $colors, not one
+// new --variable declaration here.
+// ----------------------------------------------------------
+:root {
+  @each $name, $value in v.$colors {
+    --#{$name}: #{$value};
+  }
+
+  --radius: #{v.$radius-lg};
+  --radius-small: #{v.$radius-small};
+  --shadow: #{v.$shadow-default};
+}

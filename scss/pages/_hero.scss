@@ -1,0 +1,132 @@
+@use "../abstracts/mixins" as m;
+
+#landing {
+  position: relative;
+  grid-column: 1 / -1;
+  min-height: 390px;
+  overflow: hidden;
+
+  @include m.flex(column, center, stretch, 0);
+
+  padding: 52px 65px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: linear-gradient(115deg, #151e2e 0%, #151e2e 58%, #172b48 100%);
+  box-shadow: var(--shadow);
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -90px;
+    bottom: -120px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(96, 165, 250, 0.08);
+  }
+
+  figure {
+    position: absolute;
+    top: 52px;
+    right: 85px;
+    z-index: 1;
+    margin: 0;
+    text-align: center;
+  }
+
+  img {
+    display: block;
+    width: 165px;
+    height: 165px;
+    object-fit: cover;
+    border: 7px solid #1e293b;
+    border-radius: 50%;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  }
+
+  figcaption {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  // Flattened to ".hero-content a" (rather than nesting "a" a
+  // further level inside ".hero-content") to keep this block
+  // within the 3-level nesting limit while still allowing &:hover.
+  .hero-content a {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 11px 19px;
+    border-radius: 9px;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    @include m.transition();
+
+    &:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+  }
+
+  .hero-label {
+    margin: 0 0 10px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+  }
+
+  h1 {
+    max-width: 600px;
+    margin: 0 0 8px;
+    color: var(--primary);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -2px;
+  }
+
+  p:not(.hero-label) {
+    margin: 2px 0;
+    color: var(--muted);
+  }
+
+  @include m.respond-to("tablet") {
+    min-height: 420px;
+    align-items: center;
+    padding: 45px 30px;
+    text-align: center;
+
+    figure {
+      position: static;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 9vw, 3.6rem);
+    }
+  }
+
+  @include m.respond-to("mobile") {
+    min-height: 400px;
+    padding: 35px 20px;
+
+    img {
+      width: 135px;
+      height: 135px;
+    }
+
+    h1 {
+      font-size: 2.35rem;
+      letter-spacing: -1.2px;
+    }
+  }
+}

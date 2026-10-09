@@ -1,0 +1,626 @@
+/* =========================================================
+   PORTOFOLIO M DAFFA DZAKWAN
+   Tugas Rutin 2 - Pemrograman Web
+   CSS Grid + Flexbox + Responsive + Dark Mode (default)
+   ========================================================= */
+
+/* ---------- CSS Variables ----------
+   Nilai di bawah ini sekarang langsung pakai palet gelap,
+   jadi halaman terbuka dalam dark mode tanpa perlu ubah
+   setting sistem/browser sama sekali. */
+:root {
+    --primary: #60a5fa;
+    --primary-dark: #3b82f6;
+    --accent: #fbbf24;
+    --bg: #0b1120;
+    --card: #151e2e;
+    --text: #f1f5f9;
+    --muted: #a7b1c2;
+    --line: #29364a;
+    --soft-blue: #1d304f;
+    --white: #ffffff;
+
+    --radius: 18px;
+    --radius-small: 10px;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+/* Bonus rubric: implementasi dark mode via prefers-color-scheme.
+   Blok ini menegaskan ulang palet gelap yang sama supaya tetap
+   konsisten walau perangkat memang men-detect dark mode juga. */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary: #60a5fa;
+        --primary-dark: #3b82f6;
+        --accent: #fbbf24;
+        --bg: #0b1120;
+        --card: #151e2e;
+        --text: #f1f5f9;
+        --muted: #a7b1c2;
+        --line: #29364a;
+        --soft-blue: #1d304f;
+        --white: #ffffff;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+    }
+}
+
+/* ---------- Global ---------- */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.65;
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+/* ---------- Header / Navigation : Flexbox ---------- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(21, 30, 46, 0.95);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(10px);
+}
+
+header nav {
+    max-width: 1120px;
+    margin: auto;
+    padding: 14px 24px;
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header nav li:first-child {
+    margin-right: auto;
+}
+
+header nav a {
+    display: block;
+    padding: 8px 11px;
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: 0.25s ease;
+}
+
+header nav a:hover {
+    color: var(--primary);
+    background: var(--soft-blue);
+}
+
+header nav button {
+    margin-left: 8px;
+    padding: 9px 16px;
+    border: 0;
+    border-radius: 9px;
+    background: var(--primary);
+    color: var(--white);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+header nav button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+/* =========================================================
+   MAIN — CSS GRID
+   ========================================================= */
+
+main {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 42px 0 35px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.8fr);
+    gap: 22px;
+}
+
+/* ---------- Hero ---------- */
+#landing {
+    position: relative;
+    grid-column: 1 / -1;
+    min-height: 390px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 52px 65px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: linear-gradient(115deg, #151e2e 0%, #151e2e 58%, #172b48 100%);
+    box-shadow: var(--shadow);
+}
+
+#landing::after {
+    content: "";
+    position: absolute;
+    right: -90px;
+    bottom: -120px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(96, 165, 250, 0.08);
+}
+
+#landing figure {
+    position: absolute;
+    top: 52px;
+    right: 85px;
+    z-index: 1;
+    margin: 0;
+    text-align: center;
+}
+
+#landing img {
+    display: block;
+    width: 165px;
+    height: 165px;
+    object-fit: cover;
+    border: 7px solid #1e293b;
+    border-radius: 50%;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+#landing figcaption {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-label {
+    margin: 0 0 10px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+#landing h1 {
+    max-width: 600px;
+    margin: 0 0 8px;
+    color: var(--primary);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+#landing p:not(.hero-label) {
+    margin: 2px 0;
+    color: var(--muted);
+}
+
+#landing > .hero-content > a {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 11px 19px;
+    border-radius: 9px;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+#landing > .hero-content > a:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* ---------- Section Cards ---------- */
+#contact,
+#hobi,
+#tentang-saya,
+#pendidikan {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--card);
+    box-shadow: var(--shadow);
+}
+
+#contact {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+    padding: 30px;
+}
+
+#hobi {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 30px;
+}
+
+#tentang-saya {
+    grid-column: 2;
+    grid-row: 3;
+    padding: 30px;
+}
+
+#pendidikan {
+    grid-column: 1 / -1;
+    grid-row: 4;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding: 30px;
+}
+
+section h2 {
+    position: relative;
+    margin: 0 0 22px;
+    font-size: 22px;
+    letter-spacing: -0.3px;
+}
+
+section h2::after {
+    content: "";
+    display: block;
+    width: 35px;
+    height: 3px;
+    margin-top: 7px;
+    border-radius: 10px;
+    background: var(--accent);
+}
+
+/* ---------- Contact ---------- */
+#contact > p {
+    margin: 7px 0;
+    color: var(--muted);
+}
+
+#contact > p a {
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#contact > p a:hover {
+    color: var(--primary);
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+}
+
+#contact-form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+#contact-form label {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-small);
+    outline: none;
+    color: var(--text);
+    background: #0f172a;
+    transition: 0.2s ease;
+}
+
+#contact-form input::placeholder,
+#contact-form textarea::placeholder {
+    color: #718096;
+}
+
+#contact-form textarea {
+    resize: vertical;
+}
+
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: var(--primary);
+    background: #111c2e;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.12);
+}
+
+#contact-form button {
+    align-self: flex-start;
+    padding: 10px 20px;
+    border: 0;
+    border-radius: 9px;
+    background: #e2e8f0;
+    color: #0f172a;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+#contact-form button:hover {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+/* ---------- Hobi : Flexbox ---------- */
+#hobi {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 12px;
+}
+
+#hobi h2 {
+    flex-basis: 100%;
+}
+
+#hobi article {
+    flex: 1 1 150px;
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: #0f172a;
+    transition: 0.25s ease;
+}
+
+#hobi article:hover {
+    border-color: #3b4e6a;
+    transform: translateY(-3px);
+}
+
+#hobi article h3 {
+    margin: 0 0 5px;
+    font-size: 16px;
+}
+
+#hobi article p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ---------- Tentang Saya ---------- */
+#tentang-saya p {
+    margin: 0;
+    color: var(--muted);
+}
+
+/* ---------- Pendidikan ---------- */
+#pendidikan h2 {
+    grid-column: 1 / -1;
+}
+
+.education-item h3 {
+    margin: 0;
+    padding: 12px 15px;
+    border-radius: 9px 9px 0 0;
+    background: #26344a;
+    color: #f8fafc;
+    font-size: 15px;
+}
+
+.education-item p {
+    min-height: 55px;
+    margin: 0;
+    padding: 12px 15px;
+    border: 1px solid var(--line);
+    border-top: 0;
+    border-radius: 0 0 9px 9px;
+    color: var(--muted);
+    background: #0f172a;
+}
+
+/* ---------- Aside : Flexbox ---------- */
+aside {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 18px 24px;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    background: var(--card);
+    box-shadow: var(--shadow);
+}
+
+aside h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+aside p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+aside a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+aside a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    padding: 25px 20px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    background: var(--card);
+}
+
+footer p {
+    margin: 3px 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+footer p:first-child {
+    color: var(--text);
+    font-weight: 700;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 850px) {
+    header nav {
+        padding: 12px 16px;
+    }
+
+    header nav ul {
+        justify-content: center;
+    }
+
+    header nav li:first-child {
+        margin-right: 0;
+    }
+
+    main {
+        width: min(100% - 30px, 700px);
+        grid-template-columns: 1fr;
+        padding-top: 25px;
+    }
+
+    #landing,
+    #contact,
+    #hobi,
+    #tentang-saya,
+    #pendidikan {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    #landing {
+        min-height: 420px;
+        align-items: center;
+        padding: 45px 30px;
+        text-align: center;
+    }
+
+    #landing figure {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    #landing h1 {
+        font-size: clamp(2.4rem, 9vw, 3.6rem);
+    }
+
+    #pendidikan {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    header {
+        position: relative;
+    }
+
+    header nav ul {
+        gap: 2px;
+    }
+
+    header nav a {
+        padding: 6px 7px;
+        font-size: 12px;
+    }
+
+    header nav button {
+        margin-left: 3px;
+        padding: 7px 10px;
+        font-size: 12px;
+    }
+
+    main {
+        width: calc(100% - 24px);
+        gap: 15px;
+    }
+
+    #landing {
+        min-height: 400px;
+        padding: 35px 20px;
+    }
+
+    #landing img {
+        width: 135px;
+        height: 135px;
+    }
+
+    #landing h1 {
+        font-size: 2.35rem;
+        letter-spacing: -1.2px;
+    }
+
+    #contact,
+    #hobi,
+    #tentang-saya,
+    #pendidikan {
+        padding: 22px;
+    }
+
+    #pendidikan {
+        grid-template-columns: 1fr;
+    }
+
+    aside {
+        width: calc(100% - 24px);
+        margin-bottom: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 17px 20px;
+    }
+}

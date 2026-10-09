@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M Daffa Dzakwan | Portofolio</title>
+    <meta name="description" content="Portofolio pribadi M Daffa Dzakwan, mahasiswa Ilmu Komputer Universitas Negeri Medan.">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav id="menu" aria-label="Navigasi utama">
+            <ul>
+                <li><a href="#landing">Home</a></li>
+                <li><a href="#tentang-saya">Tentang Saya</a></li>
+                <li><a href="#hobi">Hobi</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#pendidikan">Pendidikan</a></li>
+                <li><button type="button" onclick="location.href='#contact'">Get Started</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="landing">
+            <figure>
+                <img src="image/foto.jpeg" alt="Foto profil M Daffa Dzakwan" width="150">
+                <figcaption>M Daffa Dzakwan</figcaption>
+            </figure>
+
+            <div class="hero-content">
+                <p class="hero-label">PORTOFOLIO PRIBADI</p>
+                <h1>M Daffa Dzakwan</h1>
+                <p>Mahasiswa Universitas Negeri Medan</p>
+                <p>Program Studi Ilmu Komputer</p>
+                <a href="#contact">Hubungi Saya</a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email : <a href="mailto:muhammaddaffadzakwan649@gmail.com">muhammaddaffadzakwan649@gmail.com</a></p>
+            <p>WhatsApp : <a href="https://wa.me/6285835424692">+62 858-3542-4692</a></p>
+            <p>Instagram : <a href="https://instagram.com/_dzak_wanns">@_dzak_wanns</a></p>
+
+            <form id="contact-form" action="#" method="post">
+                <div>
+                    <label for="nama">Nama</label>
+                    <input type="text" id="nama" name="nama" required minlength="3" placeholder="Masukkan nama">
+                </div>
+
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Masukkan email">
+                </div>
+
+                <div>
+                    <label for="pesan">Pesan</label>
+                    <textarea id="pesan" name="pesan" rows="4" required minlength="10" placeholder="Tulis pesan..."></textarea>
+                </div>
+
+                <button type="submit">Kirim Pesan</button>
+            </form>
+        </section>
+
+        <section id="hobi">
+            <h2>Hobi</h2>
+
+            <article>
+                <h3>Olahraga</h3>
+                <p>Panahan, voli, futsal, dan badminton.</p>
+            </article>
+
+            <article>
+                <h3>Bermain Game</h3>
+                <p>Mobile Legends, Valorant, dan Blood Strike.</p>
+            </article>
+        </section>
+
+        <section id="tentang-saya">
+            <h2>Tentang Saya</h2>
+            <p>
+                Assalamualaikum warahmatullahi wabarakatuh, saya Muhammad Daffa Dzakwan,
+                mahasiswa Ilmu Komputer Universitas Negeri Medan.
+            </p>
+        </section>
+
+        <section id="pendidikan">
+            <h2>Pendidikan</h2>
+
+            <div class="education-item">
+                <h3>SD</h3>
+                <p>MIS Tarbiyah Islamiyah</p>
+            </div>
+
+            <div class="education-item">
+                <h3>SMP</h3>
+                <p>SMP IT Permata Hati</p>
+            </div>
+
+            <div class="education-item">
+                <h3>SMA</h3>
+                <p>Universitas Negeri Medan</p>
+            </div>
+        </section>
+    </main>
+
+    <aside>
+        <h2>Ikuti Saya</h2>
+        <p>Instagram : <a href="https://instagram.com/_dzak_wanns">@_dzak_wanns</a></p>
+    </aside>
+
+    <footer>
+        <p>TERIMA KASIH</p>
+        <p>&copy; 2026 M Daffa Dzakwan. All rights reserved.</p>
+    </footer>
+</body>
+</html>
